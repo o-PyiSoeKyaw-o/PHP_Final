@@ -17,16 +17,14 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link text-white dropdown-toggle" role="button" data-bs-toggle='dropdown' href="#">Product</a>
                     <ul class="dropdown-menu bg-primary">
-                        <li class="nav-link"><a class="nav-link text-white" href="product_create.php">Product Create</a></li>
-                        <li class="nav-link"><a class="nav-link text-white" href="product_update.php">Product Update</a></li>
+                        <li class="nav-link"><a class="nav-link text-white" href="./product_create.php">Product Create</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link text-white dropdown-toggle" role="button" data-bs-toggle='dropdown' href="#">Category</a>
                     <ul class="dropdown-menu bg-primary">
-                        <li class="nav-link"><a class="nav-link text-white" href="category_list.php">Category List</a></li>
-                        <li class="nav-link"><a class="nav-link text-white" href="category_create.php">Category Create</a></li>
-                        <li class="nav-link"><a class="nav-link text-white" href="category_update.php">Category Update</a></li>
+                        <li class="nav-link"><a class="nav-link text-white" href="./category_list.php">Category List</a></li>
+                        <li class="nav-link"><a class="nav-link text-white" href="./category_create.php">Category Create</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">User</a></li>
@@ -43,7 +41,6 @@
     }
     ?>
 
-    <!-- Update လုပ်တယ့် အခါမှာ ဝင်လာမယ့် data အတွက် -->
     <?php
     if (isset($_POST['update'])) {
         $id = $_POST['id'];
@@ -55,14 +52,14 @@
     }
     ?>
 
-    <div class="container mt-5 rounded py-3" style="width: 500px; border: 2px solid black;">
+    <div class="container rounded mt-5 p-3" style="width:500px; border: solid 2px black;">
         <form method="post">
-            <input type="hidden" name="id" value="<?php echo $category['id']; ?>">
+            <input type="hidden" name="id" value="<?= $category['id'] ?>">
             <div class="mb-3">
-                <label for="name" class="form-label">Category Name</label>
-                <input type="text" name="name" class="form-control" value="<?php echo $category['name']; ?>">
+                <label class="form-label" for="name">Category Name</label>
+                <input class="form-control" type="text" name="name" value="<?= $category['name'] ?>">
             </div>
-            <button class="btn btn-success" type="submit" name="update">Update</button>
+            <button class="btn btn-success" name="update">Create</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

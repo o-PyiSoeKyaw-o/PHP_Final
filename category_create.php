@@ -17,16 +17,14 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link text-white dropdown-toggle" role="button" data-bs-toggle='dropdown' href="#">Product</a>
                     <ul class="dropdown-menu bg-primary">
-                        <li class="nav-link"><a class="nav-link text-white" href="product_create.php">Product Create</a></li>
-                        <li class="nav-link"><a class="nav-link text-white" href="product_update.php">Product Update</a></li>
+                        <li class="nav-link"><a class="nav-link text-white" href="./product_create.php">Product Create</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link text-white dropdown-toggle" role="button" data-bs-toggle='dropdown' href="#">Category</a>
                     <ul class="dropdown-menu bg-primary">
-                        <li class="nav-link"><a class="nav-link text-white" href="category_list.php">Category List</a></li>
-                        <li class="nav-link"><a class="nav-link text-white" href="category_create.php">Category Create</a></li>
-                        <li class="nav-link"><a class="nav-link text-white" href="category_update.php">Category Update</a></li>
+                        <li class="nav-link"><a class="nav-link text-white" href="./category_list.php">Category List</a></li>
+                        <li class="nav-link"><a class="nav-link text-white" href="./category_create.php">Category Create</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">User</a></li>
@@ -34,21 +32,21 @@
         </div>
     </nav>
 
-    <?php 
-        if(isset($_POST['submit'])) {
-            $name = $_POST['name'];
+    <?php
+    if (isset($_POST['submit'])) {
+        $name = $_POST['name'];
 
-            $conn->query("INSERT INTO categories (name) VALUES ('$name')");
-            header('location: category_list.php');
-            exit();
-        }
+        $conn->query("INSERT INTO categories (name) VALUES ('$name')");
+        header('location: category_list.php');
+        exit();
+    }
     ?>
 
-    <div class="container mt-5 rounded py-3" style="width: 500px; border: 2px solid black;">
+    <div class="container rounded mt-5 p-3" style="width:500px; border: solid 2px black;">
         <form method="post">
             <div class="mb-3">
                 <label class="form-label" for="name">Category Name</label>
-                <input class="form-control" type="text" name="name">
+                <input class="form-control" type="text" name="name" placeholder="NAME">
             </div>
             <button class="btn btn-success" name="submit">Create</button>
         </form>
