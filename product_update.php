@@ -66,9 +66,10 @@
             $image = time() . "_" . basename($_FILES['image']['name']);
             move_uploaded_file($_FILES['image']['tmp_name'], $media . $image);
         }
+
         $description = $_POST['description'];
 
-        $conn->query("UPDATE products SET name='$name', price='$price', category_id='$category_id',  image='$image', description='$description' WHERE id=$id");
+        $conn->query("UPDATE products SET name='$name', price='$price', category_id='$category_id', image='$image', description='$description' WHERE id=$id");
         header("location:index.php");
         exit();
     }
@@ -90,9 +91,7 @@
                 <label class="form-label" for="category">Product Category</label>
                 <select class="form-control" name="category" id="category">
                     <?php while ($category = $categories->fetch_assoc()): ?>
-                        <option value="<?= $category['id'] ?>" <?= ($category['id'] == $product['category_id']) ? 'selected' : '' ?>>
-                            <?= $category['name'] ?>
-                        </option>
+                        <option value="<?php echo $category['id'] ?>" <?= ($category['id'] == $product['category_id'] ? 'selected' : '') ?>><?php echo $category['name'] ?></option>
                     <?php endwhile; ?>
                 </select>
             </div>
@@ -102,9 +101,9 @@
             </div>
             <div class="mb-2">
                 <label class="form-label" for="description">Product Description</label>
-                <textarea class="form-control" name="description"><?= $product['description'] ?></textarea>
+                <textarea class="form-control" type="text" name="description"><?= $product['description'] ?></textarea>
             </div>
-            <button class="btn btn-success" type="submit" name="submit">Create</button>
+            <button class="btn btn-success" type="submit" name="submit">Update</button>
         </form>
     </div>
 
